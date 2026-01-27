@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Pasien</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* CSS khusus saat print */
+        @media print {
+            button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h2>DATA PASIEN KLINIK RAWAT INAP</h2>
+
+<button onclick="window.print()">🖨 Cetak Data Pasien</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>ID Pasien</th>
+            <th>Nama Pasien</th>
+            <th>Jenis Kelamin</th>
+            <th>Umur</th>
+            <th>Alamat</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in pasien %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ p.id_pasien }}</td>
+            <td>{{ p.nama }}</td>
+            <td>{{ p.jenis_kelamin }}</td>
+            <td>{{ p.umur }}</td>
+            <td>{{ p.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
+
+
