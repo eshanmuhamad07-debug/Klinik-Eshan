@@ -1,176 +1,120 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-:root {
-    /* Palet Warna Utama */
-    --primary: #0f172a;       /* Dark Navy */
-    --accent: #38bdf8;        /* Sky Blue */
-    --success: #10b981;       /* Emerald */
-    --warning: #f59e0b;       /* Amber */
-    --danger: #ef4444;        /* Rose */
-    --bg-body: #f1f5f9;       /* Slate Light */
-    --text-main: #1e293b;     /* Slate Dark */
-    --white: #ffffff;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-body);
-    color: var(--text-main);
-    line-height: 1.6;
-    margin: 0;
-    padding: 40px 20px;
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    min-height: 100vh;
 }
 
-/* Container */
+/* ===== CONTAINER UMUM ===== */
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* Typography & Heading */
-h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 30px;
-    border-left: 5px solid var(--accent);
-    padding-left: 15px;
-}
-
-/* Button Keren */
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    border: none;
-    font-size: 0.95rem;
-}
-
-.btn-tambah {
-    background: linear-gradient(135deg, var(--primary) 0%, #334155 100%);
-    color: var(--white);
-    box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.2);
-}
-
-.btn-tambah:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.2);
-    filter: brightness(1.2);
-}
-
-/* Tabel Modern */
-.card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    overflow: hidden;
-}
-
-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px; /* Memberi jarak antar baris */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-th {
-    background-color: transparent;
-    color: #64748b;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    padding: 15px;
+/* ===== CARD ===== */
+.card {
+    background: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-td {
-    background-color: #fafafa;
-    padding: 20px 15px;
-}
-
-td:first-child { border-radius: 12px 0 0 12px; }
-td:last-child { border-radius: 0 12px 12px 0; }
-
-tr:hover td {
-    background-color: #f8fafc;
-    color: var(--accent);
-}
-
-/* Status Badge Berwarna */
-.badge {
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    display: inline-block;
-}
-
-.badge-lunas {
-    background-color: #dcfce7;
-    color: #166534;
-}
-
-.badge-pending {
-    background-color: #fef3c7;
-    color: #92400e;
-}
-
-/* Link Aksi */
-.edit {
-    color: var(--accent);
-    margin-right: 15px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.hapus {
-    color: var(--danger);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-/* Form Styling */
-form {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 24px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.form-group {
+/* ===== JUDUL ===== */
+.card h2 {
+    text-align: center;
+    color: #0f766e;
     margin-bottom: 20px;
 }
 
-input, select {
-    width: 100%;
-    padding: 14px;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    font-family: inherit;
-    transition: all 0.2s;
-    box-sizing: border-box;
+/* ===== FORM ===== */
+.form-group {
+    margin-bottom: 15px;
 }
 
-input:focus, select:focus {
-    border-color: var(--accent);
+.form-group label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
     outline: none;
-    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
 }
 
-button[type="submit"] {
+.form-group input:focus {
+    border-color: #14b8a6;
+}
+
+/* ===== BUTTON ===== */
+.btn {
     width: 100%;
-    background: var(--accent);
-    color: var(--white);
-    padding: 16px;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 1rem;
-    margin-top: 10px;
+    padding: 12px;
+    background: #14b8a6;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0f766e;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: #0f766e;
+    padding: 15px 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+/* ===== CONTENT ===== */
+.content {
+    padding: 30px;
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background: #14b8a6;
+    color: white;
 }

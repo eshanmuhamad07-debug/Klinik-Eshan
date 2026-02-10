@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Transaksi Apotek</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">Klinik Rawat Inap</div>
+        <div class="menu">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/rekam_medis">Rekam Medis</a>
+            <a href="/transaksi">Transaksi</a>
+            <a href="/riwayat_transaksi"></a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Transaksi Obat</h2>
+
+            <form method="post">
+                <label>Pasien</label>
+                <select name="nik" required>
+                    {% for p in pasien %}
+                    <option value="{{ p.nik }}">{{ p.nik }}</option>
+                    {% endfor %}
+                </select>
+
+
+                <label>Obat</label>
+                <select name="id_obat" required>
+                    {% for o in obat %}
+                    <option value="{{ o.id_obat }}">
+                        {{ o.nama }} | Rp {{ o.harga }}
+                    </option>
+                    {% endfor %}
+                </select>
+
+                <label>Jumlah</label>
+                <input type="number" name="jumlah" min="1" required>
+
+                <button class="btn">Simpan Transaksi</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

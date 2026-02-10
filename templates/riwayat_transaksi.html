@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Riwayat Transaksi</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Riwayat Transaksi Pasien</h2>
+
+<table>
+    <tr>
+        <th>ID Transaksi</th>
+        <th>NIK</th>
+        <th>Nama Obat</th>
+        <th>Harga</th>
+        <th>Jumlah</th>
+        <th>Total</th>
+        <th>Tanggal</th>
+    </tr>
+
+    {% for r in riwayat %}
+    <tr>
+        <td>{{ r.id_transaksi }}</td>
+        <td>{{ r.nik }}</td>
+        <td>{{ r.nama_obat }}</td>
+        <td>Rp {{ r.harga }}</td>
+        <td>{{ r.jumlah }}</td>
+        <td>Rp {{ r.total }}</td>
+        <td>{{ r.tanggal }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/dashboard">Kembali ke Dashboard</a>
+
+</body>
+</html>

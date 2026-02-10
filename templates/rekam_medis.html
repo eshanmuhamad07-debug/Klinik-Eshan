@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Rekam Medis</title>
+
+    <!-- FONT POPPINS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">Klinik Rawat Inap</div>
+    <div class="menu">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/pasien">Pasien</a>
+        <a href="/rekam_medis">Rekam Medis</a>
+        <a href="/transaksi">Transaksi</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<!-- KONTEN -->
+<div class="container">
+    <div class="card">
+        <h2>Rekam Medis</h2>
+
+        <form method="post">
+
+            <label>NIK Pasien</label>
+            <select name="nik" required>
+                {% for p in pasien %}
+                <option value="{{ p.nik }}">{{ p.nik }} - {{ p.nama }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Keluhan</label>
+            <textarea name="keluhan" placeholder="Masukkan keluhan pasien" required></textarea>
+
+            <label>Diagnosis</label>
+            <textarea name="diagnosis" placeholder="Masukkan diagnosis dokter" required></textarea>
+
+            <label>Dokter</label>
+            <select name="id_dokter" required>
+                {% for d in dokter %}
+                <option value="{{ d.id_dokter }}">{{ d.nama }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit" class="btn">Simpan Rekam Medis</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
